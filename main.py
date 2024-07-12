@@ -10,13 +10,13 @@ intents = discord.Intents.default()
 intents.messages = True
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = commands.Bot(command_prefix='', intents=intents)
 
 @bot.event
 async def on_ready():
     print(f'Bot {bot.user.name} jest gotowy.')
 
-@bot.command(name='clear', help='Kasuje podaną ilość wiadomości z kanału. Użycie: !clear <liczba>')
+@bot.command(name='clear', help='Kasuje podaną ilość wiadomości z kanału. Użycie: clear <liczba>')
 @commands.has_permissions(manage_messages=True)
 async def clear(ctx, amount: int):
     if amount < 1:
